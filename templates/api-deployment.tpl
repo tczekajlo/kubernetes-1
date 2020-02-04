@@ -9,6 +9,9 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: pelias-api
   template:
     metadata:
       labels:

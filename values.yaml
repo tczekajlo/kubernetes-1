@@ -124,20 +124,20 @@ pip:
     memory: 10Gi
     cpu: 3
     # cannot use a hyphen to match the k8s param due to https://github.com/helm/helm/issues/2192
-    ephemeral_storage: 35Gi
+    ephemeral_storage: 1Gi
   requests:
-    memory: 5Gi
+    memory: 4Gi
     cpu: 0.1
     # cannot use a hyphen to match the k8s param due to https://github.com/helm/helm/issues/2192
-    ephemeral_storage: 35Gi
+    ephemeral_storage: 1Gi
   annotations: {}
   nodeSelector: {}
-  pvc: {}
-#    create: true
-#    name: pip-pvc
-#    storageClass: aws-efs
-#    accessModes: ReadWriteMany
-#    storage: 10Gi
+  pvc:
+    create: true
+    name: pip-pvc
+    storageClass: standard
+    accessModes: ReadWriteOnce
+    storage: 80Gi
 #    annotations: {}
 
 dashboard:

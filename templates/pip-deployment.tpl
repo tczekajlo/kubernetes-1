@@ -9,6 +9,9 @@ spec:
     rollingUpdate:
       maxSurge: {{ .Values.pip.maxSurge }}
       maxUnavailable: {{ .Values.pip.maxUnavailable }}
+  selector:
+    matchLabels:
+      app: pelias-pip
   template:
     metadata:
       labels:
@@ -64,6 +67,10 @@ spec:
               path: /12/12
               port: 3102
             initialDelaySeconds: {{ .Values.pip.initialDelaySeconds }}
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       volumes:
         - name: config-volume
           configMap:

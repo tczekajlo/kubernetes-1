@@ -6,6 +6,7 @@ data:
   pelias.json: |
     {
       "esclient": {
+        "apiVersion": "7.5",
         "hosts": [{
           "host": {{ .Values.elasticsearch.host | quote}},
           "port": {{ .Values.elasticsearch.port }},
@@ -19,7 +20,7 @@ data:
         "settings": {
           "index": {
             "number_of_replicas": "0",
-            "number_of_shards": "12",
+            "number_of_shards": "1",
             "refresh_interval": "1m"
           }
         }
@@ -91,11 +92,11 @@ data:
         },
         "openstreetmap": {
           "download": [{
-              "sourceURL": "https://planet.openstreetmap.org/pbf/planet-latest.osm.pbf"
+              "sourceURL": "https://s3.amazonaws.com/metro-extracts.nextzen.org/portland_oregon.osm.pbf"
           }],
           "datapath": "/data/openstreetmap",
           "import": [{
-            "filename": "planet-latest.osm.pbf"
+            "filename": "portland_oregon.osm.pbf"
           }]
         },
         "polyline": {

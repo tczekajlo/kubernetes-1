@@ -9,6 +9,9 @@ spec:
     rollingUpdate:
       maxSurge: {{ .Values.libpostal.maxSurge }}
       maxUnavailable: {{ .Values.libpostal.maxUnavailable }}
+  selector:
+    matchLabels:
+      app: pelias-libpostal
   template:
     metadata:
       labels:

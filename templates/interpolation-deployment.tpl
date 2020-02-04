@@ -9,6 +9,9 @@ spec:
     rollingUpdate:
       maxSurge: {{ .Values.interpolation.maxSurge }}
       maxUnavailable: {{ .Values.interpolation.maxUnavailable }}
+  selector:
+    matchLabels:
+      app: pelias-interpolation
   template:
     metadata:
       labels:

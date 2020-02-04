@@ -9,6 +9,9 @@ spec:
     rollingUpdate:
       maxSurge: {{ .Values.placeholder.maxSurge }}
       maxUnavailable: {{ .Values.placeholder.maxUnavailable }}
+  selector:
+    matchLabels:
+      app: pelias-placeholder
   template:
     metadata:
       labels:
